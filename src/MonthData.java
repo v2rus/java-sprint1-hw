@@ -1,12 +1,10 @@
 class MonthData {
     int[] days = new int[30];
 
-    void printSteps(int day){
-        System.out.println(days[day-1]);
-    }
     void printDaysAndStepsFromMonth() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println("За день "+i+" пройденно "+days[i]+" шагов");
+        for (int i = 0; i < days.length; i++) {
+            // Вывод элементов массива в необходимом формате
+            System.out.println((i+1) + " день: " + days[i]);
         }
     }
 
@@ -18,11 +16,13 @@ class MonthData {
         return sumSteps;
     }
 
-    int maxSteps() {
-        int maxSteps = 0;
+    int[] maxSteps() {
+        int[] maxSteps = new int[2];
         for (int i = 0; i < days.length; i++) {
-            if (days[i]<=maxSteps){
-                maxSteps=days[i];
+            if (days[i]>=maxSteps[1]){
+                maxSteps[0] = i;
+                maxSteps[1] = days[i];
+
             }
         }
         return maxSteps;
@@ -35,7 +35,9 @@ class MonthData {
             // поиск максимальной серии
             if (days[i]>=goalByStepsPerDay){
                 currentSeries++;
-                finalSeries++;
+                if (currentSeries>finalSeries){
+                    finalSeries = currentSeries;
+                }
             } else currentSeries = 0;
         }
         return finalSeries;

@@ -5,9 +5,10 @@ class Main {
 
 
         Scanner scanner = new Scanner(System.in);
+
+        StepTracker user = new StepTracker(scanner);
         while (true) {
             System.out.println("Введите команду: ");
-            StepTracker user = new StepTracker(scanner);
 
             printMenu();
 
@@ -17,10 +18,10 @@ class Main {
                 user.addNewNumberStepsPerDay();
             } else if (i == 2) {
             // здесь будет логика команды 2
-                user.addNewNumberStepsPerDay();
+                user.changeStepGoal();
             } else if (i == 3) {
-//            // здесь будет логика команды 3
-                user.printMonthSteps();
+            // здесь будет логика команды 3
+                user.printStatistic();
             } else if (i == 4) {
                 System.out.println("Пока!");
                 scanner.close();
