@@ -29,6 +29,10 @@ public class StepTracker {
                 System.out.println("Введите количество шагов");
                 // ввод и проверка количества шагов
                 steps = scanner.nextInt();
+                if (steps<0){
+                    System.out.println("Вы ввели недопустимое или отрицательное значение");
+                    return;
+                }
             }else {
                 System.out.println("Попробуйте снова, допустимые значения от 1 до 30");
                 return;
@@ -45,9 +49,16 @@ public class StepTracker {
 
 
     void changeStepGoal(){
+        int newGoalByStepsPerDya = 0;
         System.out.println("Введите новую цель по число шагов: ");
-        goalByStepsPerDay = scanner.nextInt();
-        System.out.println("Новая суточная цель шагов = " +goalByStepsPerDay);
+        newGoalByStepsPerDya = scanner.nextInt();
+        if (newGoalByStepsPerDya<0){
+            System.out.println("Вы ввели недопустимое или отрицательное значение");
+        }else {
+            goalByStepsPerDay = newGoalByStepsPerDya;
+            System.out.println("Новая суточная цель шагов = " +goalByStepsPerDay);
+        }
+
     }
     void printStatistic() {
         System.out.println("Введите число месяца");
@@ -79,7 +90,7 @@ public class StepTracker {
             System.out.println(); //дополнительный перенос строки
         } else {
             System.out.println("Вы ввели недопустимо значение. Допустимые значение от 1 до 12");
-//            return;
+            return;
         }
     }
 }

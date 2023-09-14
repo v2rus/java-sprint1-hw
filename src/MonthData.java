@@ -42,10 +42,4 @@ class MonthData {
         }
         return finalSeries;
     }
-    int sumSteps (){
-        int sumStepsResult = 0;
-        for (int i = 0; i<days.length; i++){
-            sumStepsResult = sumStepsResult +days[i];
-        }return sumStepsResult;
-    }
 }
